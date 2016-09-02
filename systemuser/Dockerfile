@@ -15,6 +15,6 @@ RUN USER_ID=65000 USER=systemusertest sh /srv/singleuser/systemuser.sh -h && use
 # Added ssh client for github connect
 RUN apt-get update && apt-get install -y openssh-client
 # Install nb_conda for managing conda environments in jupyterhub
-RUN conda install -c anaconda-nb-extensions nb_conda=1.0.0
+RUN conda install -y -c anaconda-nb-extensions nb_conda=1.0.0
 
 CMD ["sh", "/srv/singleuser/systemuser.sh"]
