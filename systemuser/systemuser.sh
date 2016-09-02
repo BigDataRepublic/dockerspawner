@@ -5,6 +5,9 @@ if getent passwd $USER_ID > /dev/null ; then
 else
   echo "Creating user $USER ($USER_ID)"
   useradd -u $USER_ID -s $SHELL $USER
+  echo "Creating default user environment"
+  conda create -n $USER-python27 python=2.7
+  conda create -n $USER-python35 python=3.5
 fi
 
 notebook_arg=""
