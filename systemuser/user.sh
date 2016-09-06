@@ -8,6 +8,7 @@ else
   echo "Creating default user environment settings for conda"
   conda config --add envs_dirs /home/$USER/.conda/envs
   conda config --add channels defaults
+  conda config --add channels r
   chown $USER:$USER /home/$USER/.condars 
 fi
 
