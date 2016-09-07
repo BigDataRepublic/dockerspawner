@@ -12,6 +12,8 @@ else
   chown $USER:$USER /home/$USER/.condarc
   
   echo "Setting lib environment for user"
+  mkdir /home/$USER/.R
+  chown $USER:$USER /home/$USER/.R
   echo .libPaths("/home/$USER/.R","/usr/local/lib/R/site-library" ) >> /etc/R/Rprofile.site
 fi
 
