@@ -10,6 +10,9 @@ else
   conda config --add channels defaults
   conda config --add channels r
   chown $USER:$USER /home/$USER/.condarc
+  
+  echo "Setting lib environment for user"
+  echo .libPaths("/home/$USER/.R","/usr/local/lib/R/site-library" ) >> /etc/R/Rprofile.site
 fi
 
 notebook_arg=""
