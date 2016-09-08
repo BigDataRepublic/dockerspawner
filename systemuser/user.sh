@@ -14,7 +14,7 @@ else
   echo "Setting lib environment for user"
   mkdir /home/$USER/.R
   chown $USER:$USER /home/$USER/.R
-  echo ".libPaths(c('/home/user2/.R','/usr/local/lib/R/site-library'))" >> /etc/R/Rprofile.site
+  echo ".libPaths(c('/home/$USER/.R','/usr/local/lib/R/site-library'))" >> /etc/R/Rprofile.site
 fi
 
 notebook_arg=""
