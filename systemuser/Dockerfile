@@ -32,8 +32,14 @@ RUN apt-get install r-base -y --force-yes
 #Install required external libs
 RUN apt-get install curl libssl-dev libssh2-1-dev libcurl4-openssl-dev xml2 libxml2-dev libgmp3-dev pkg-config -y
 
-#Install some common R libs + required libs
-RUN R -e "install.packages(c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 'devtools', 'uuid', 'digest','dplyr','tdyr','stringr','lubridate','ggplot2','igraph','ggvis','maps','ggmap','sp'),  repos = 'http://cran.case.edu' )"
+#Install Required libs for jupyterhub integration
+RUN R -e "install.packages(c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 'devtools', 'uuid', 'digest'),  lib='/usr/lib/R/library', repos = 'http://cran.case.edu' )"
+
+#Install R-essential package
+RUN R -e "install.packages(c('caret', 'data.table', 'dplyr', 'ggplot2', 'glmnet', 'jsonlite', 'plyr','quantmod','randomForest','rbokeh','rmarkdown','shiny','tidyr','zoo'), lib='/usr/lib/R/library', repos = 'http://cran.case.edu' )"
+
+#Install R-recommended package
+RUN R -e "install.packages(c('boot', 'class', 'cluster', 'codetools', 'foreign', 'KernSmooth', 'lattice','MASS','Matrix','mgcv','nlme','nnet','rpart','spatial','survival'), lib='/usr/lib/R/library', repos = 'http://cran.case.edu' )"
 
 #Install jupyterhub integration
 RUN R -e "devtools::install_github('IRkernel/IRkernel')"
