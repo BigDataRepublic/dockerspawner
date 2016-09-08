@@ -15,7 +15,7 @@ else
   mkdir /home/$USER/.R
   chown $USER:$USER /home/$USER/.R
   #Allow packages to be installed in the .R dir and found in conda and R
-  echo ".libPaths(c('/home/$USER/.R','/home/$USER/.conda/envs/.pkgs/','/usr/local/lib/R/site-library'))" >> /etc/R/Rprofile.site
+  echo ".libPaths(c('/home/$USER/.R','/usr/local/lib/R/site-library'))" >> /etc/R/Rprofile.site
 fi
 
 notebook_arg=""
