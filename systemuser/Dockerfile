@@ -51,3 +51,5 @@ CMD ["sh", "/srv/singleuser/user.sh"]
 
 #Update sudo rights to all users
 RUN echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+#set env for user
+RUN echo "PATH='/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'" >> /etc/environment
