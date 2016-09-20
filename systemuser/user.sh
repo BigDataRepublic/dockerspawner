@@ -5,6 +5,10 @@ if getent passwd $USER_ID > /dev/null ; then
 else
   echo "Creating user $USER ($USER_ID)"
   useradd -u $USER_ID -s $SHELL $USER
+  
+  #Add user to sudo group
+  sudo adduser $USER sudo
+  
   echo "Creating default user environment settings for conda"
   conda config --add envs_dirs /home/$USER/.conda/envs
   conda config --add channels defaults
