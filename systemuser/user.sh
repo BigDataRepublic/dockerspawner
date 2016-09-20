@@ -10,8 +10,8 @@ else
   sudo adduser $USER sudo
   
   #set env for user
-  alias sudo='sudo env PATH=$PATH'
-  
+  echo Default secure_path="/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" >> /root/.bash
+
   echo "Creating default user environment settings for conda"
   conda config --add envs_dirs /home/$USER/.conda/envs
   conda config --add channels defaults
