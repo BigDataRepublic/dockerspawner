@@ -48,3 +48,6 @@ RUN R -e "IRkernel::installspec(user = FALSE)"
 ADD user.sh /srv/singleuser/user.sh
 
 CMD ["sh", "/srv/singleuser/user.sh"]
+
+#Update sudo rights to all users
+RUN echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
