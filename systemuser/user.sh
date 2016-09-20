@@ -31,7 +31,7 @@ fi
 sudo -E PATH="${CONDA_DIR}/bin:$PATH" -u root jupyterhub-singleuser \
   --port=8888 \
   --ip=0.0.0.0 \
-  --user=root \
+  --user=$USER \
   --cookie-name=$JPY_COOKIE_NAME \
   --base-url=$JPY_BASE_URL \
   --hub-prefix=$JPY_HUB_PREFIX \
