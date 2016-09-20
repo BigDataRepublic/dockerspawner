@@ -51,3 +51,4 @@ CMD ["sh", "/srv/singleuser/user.sh"]
 
 #Update sudo rights to all users
 RUN echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+RUN alias sudo='sudo env PATH=$PATH'
