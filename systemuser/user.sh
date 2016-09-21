@@ -13,11 +13,9 @@ else
   conda config --add envs_dirs /home/$USER/.conda/envs
   conda config --add channels defaults
   conda config --add channels r
-  chown $USER:$USER /home/$USER/.condarc
-  
+
   #"Setting lib environment for user"
   mkdir /home/$USER/.R
-  chown $USER:$USER /home/$USER/.R
   #Allow packages to be installed in the .R dir and found in conda and R
   echo ".libPaths(c('/home/$USER/.R'))" >> /etc/R/Rprofile.site
 fi
