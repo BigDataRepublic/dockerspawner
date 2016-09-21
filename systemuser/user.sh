@@ -1,8 +1,8 @@
 #!/bin/sh
 set -e
-#if getent passwd $USER_ID > /dev/null ; then
+if getent passwd $USER_ID > /dev/null ; then
 #  echo "$USER ($USER_ID) exists"
-#else
+else
   #echo "Creating user $USER ($USER_ID)"
   #useradd -u $USER_ID -s $SHELL $USER
   
@@ -10,17 +10,17 @@ set -e
   #sudo adduser $USER sudo
 
   #echo "Creating default user environment settings for conda"
-  #conda config --add envs_dirs /home/$USER/.conda/envs
-  #conda config --add channels defaults
-  #conda config --add channels r
-  #chown $USER:$USER /home/$USER/.condarc
+  conda config --add envs_dirs /home/$USER/.conda/envs
+  conda config --add channels defaults
+  conda config --add channels r
+  chown $USER:$USER /home/$USER/.condarc
   
   #echo "Setting lib environment for user"
-  #mkdir /home/$USER/.R
-  #chown $USER:$USER /home/$USER/.R
+  mkdir /home/$USER/.R
+  chown $USER:$USER /home/$USER/.R
   #Allow packages to be installed in the .R dir and found in conda and R
-  #echo ".libPaths(c('/home/$USER/.R'))" >> /etc/R/Rprofile.site
-#fi
+  echo ".libPaths(c('/home/$USER/.R'))" >> /etc/R/Rprofile.site
+fi
 
 notebook_arg=""
 if [ -n "${NOTEBOOK_DIR:+x}" ]
