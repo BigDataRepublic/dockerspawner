@@ -1,13 +1,15 @@
 #!/bin/sh
 set -e
 if getent passwd $USER_ID > /dev/null ; then
-#  echo "$USER ($USER_ID) exists"
+  echo "$USER ($USER_ID) exists"
 else
   #echo "Creating user $USER ($USER_ID)"
   #useradd -u $USER_ID -s $SHELL $USER
   
   #Add user to sudo group
   #sudo adduser $USER sudo
+  
+  rm -rf /home/jovyan
 
   #echo "Creating default user environment settings for conda"
   conda config --add envs_dirs /home/$USER/.conda/envs
