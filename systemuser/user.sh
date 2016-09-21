@@ -3,13 +3,11 @@ set -e
 if getent passwd $USER_ID > /dev/null ; then
   echo "$USER ($USER_ID) exists"
 else
-  #echo "Creating user $USER ($USER_ID)"
-  #useradd -u $USER_ID -s $SHELL $USER
-  
-  #Add user to sudo group
-  #sudo adduser $USER sudo
-  
+  #removing test user
   rm -rf /home/jovyan
+  
+  #adding symbolic link to data drive
+  ln -s /mnt/data/ "/home/$USER/data --> Read-only"
 
   #echo "Creating default user environment settings for conda"
   conda config --add envs_dirs /home/$USER/.conda/envs
@@ -17,7 +15,7 @@ else
   conda config --add channels r
   chown $USER:$USER /home/$USER/.condarc
   
-  #echo "Setting lib environment for user"
+  #"Setting lib environment for user"
   mkdir /home/$USER/.R
   chown $USER:$USER /home/$USER/.R
   #Allow packages to be installed in the .R dir and found in conda and R
