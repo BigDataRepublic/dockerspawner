@@ -1,6 +1,7 @@
 #!/bin/sh
 set -e
-if getent passwd $USER_ID > /dev/null ; then
+#Check if user home is already set
+if [ -h /home/t1/data\ --\>\ Read-only ] ; then
   echo "$USER ($USER_ID) exists"
 else
   #removing test user
