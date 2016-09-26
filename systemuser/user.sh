@@ -16,7 +16,11 @@ else
   conda config --add channels r
 
   #"Setting lib environment for user"
-  mkdir /home/$USER/.R
+  if [ -h /home/$USER/.R ] ; then
+    echo "$USER has already .R map"
+  else
+    mkdir /home/$USER/.R
+  fi
   #Allow packages to be installed in the .R dir and found in conda and R
   echo ".libPaths(c('/home/$USER/.R'))" >> /etc/R/Rprofile.site
 fi
