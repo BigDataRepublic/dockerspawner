@@ -1,14 +1,14 @@
 #!/bin/sh
 set -e
 #Check if user home is already set
-if [ -h /home/$USER/data\ --\>\ Read-only ] ; then
+if [ -h /home/$USER/data ] ; then
   echo "$USER ($USER_ID) exists"
 else
   #removing test user
   rm -rf /home/jovyan
   
   #adding symbolic link to data drive
-  ln -s /mnt/data/ "/home/$USER/data --> Read-only"
+  ln -s /mnt/data/ "/home/$USER/data"
 
   #echo "Creating default user environment settings for conda"
   conda config --add envs_dirs /home/$USER/.conda/envs
