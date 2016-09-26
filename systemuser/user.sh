@@ -16,7 +16,7 @@ else
   conda config --add channels r
 
   #"Setting lib environment for user"
-  if [ -h /home/$USER/.R ] ; then
+  if [ -n /home/$USER/.R ] ; then
     echo "$USER has already .R map"
   else
     mkdir /home/$USER/.R
